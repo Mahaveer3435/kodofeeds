@@ -11,7 +11,7 @@ const Products = () => {
     {
       name: "Premium Layer Feed",
       category: "Layer Feed",
-      price: "$24.99",
+      price: "₹2,099",
       unit: "per 50lb bag",
       image: productImage,
       features: [
@@ -32,7 +32,7 @@ const Products = () => {
     {
       name: "Broiler Growth Formula", 
       category: "Broiler Feed",
-      price: "$22.99",
+      price: "₹1,949",
       unit: "per 50lb bag",
       image: productImage,
       features: [
@@ -52,7 +52,7 @@ const Products = () => {
     {
       name: "Organic Starter Feed",
       category: "Starter Feed", 
-      price: "$29.99",
+      price: "₹2,549",
       unit: "per 50lb bag",
       image: productImage,
       features: [
@@ -72,7 +72,7 @@ const Products = () => {
     {
       name: "Free-Range Maintenance",
       category: "Maintenance Feed",
-      price: "$26.99", 
+      price: "₹2,299", 
       unit: "per 50lb bag",
       image: productImage,
       features: [
@@ -288,9 +288,6 @@ const Products = () => {
             Get personalized feed recommendations from our experts.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up">
-            <Button variant="outline" size="xl" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
-              Get Custom Quote
-            </Button>
             <Button variant="ghost" size="xl" className="text-primary-foreground border-primary-foreground/30 hover:bg-primary-foreground/10">
               Call Our Experts
             </Button>

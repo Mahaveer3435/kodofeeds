@@ -19,86 +19,9 @@ const ContactSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
-          <div className="animate-fade-in-up">
-            <Card className="border-0 shadow-elegant bg-background/80 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-foreground mb-6">Send Us a Message</h3>
-                <form className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        First Name
-                      </label>
-                      <Input 
-                        placeholder="John"
-                        className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">
-                        Last Name
-                      </label>
-                      <Input 
-                        placeholder="Smith"
-                        className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                      />
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Email Address
-                    </label>
-                    <Input 
-                      type="email"
-                      placeholder="john.smith@email.com"
-                      className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Phone Number
-                    </label>
-                    <Input 
-                      type="tel"
-                      placeholder="+1 (555) 123-4567"
-                      className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Farm Size (Number of Chickens)
-                    </label>
-                    <Input 
-                      placeholder="e.g., 500"
-                      className="transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">
-                      Message
-                    </label>
-                    <Textarea 
-                      placeholder="Tell us about your farm and what you're looking to achieve..."
-                      className="min-h-32 transition-all duration-300 focus:ring-2 focus:ring-primary/20 focus:border-primary"
-                    />
-                  </div>
-                  
-                  <Button variant="hero" size="lg" className="w-full">
-                    Send Message
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </div>
-
+        <div className="flex justify-center">
           {/* Contact Information */}
-          <div className="space-y-8 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <div className="space-y-8 animate-fade-in-up max-w-2xl">
             <div>
               <h3 className="text-2xl font-bold text-foreground mb-6">Contact Information</h3>
               <p className="text-muted-foreground mb-8 leading-relaxed">

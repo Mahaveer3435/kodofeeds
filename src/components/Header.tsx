@@ -50,9 +50,6 @@ const Header = () => {
                 />
               </Link>
             ))}
-            <Button variant="cta" size="sm" className="ml-4">
-              Get Quote
-            </Button>
           </nav>
 
           {/* Mobile menu button */}
@@ -84,11 +81,6 @@ const Header = () => {
                   {link.name}
                 </Link>
               ))}
-              <div className="px-3 py-2">
-                <Button variant="cta" size="sm" className="w-full">
-                  Get Quote
-                </Button>
-              </div>
             </nav>
           </div>
         )}

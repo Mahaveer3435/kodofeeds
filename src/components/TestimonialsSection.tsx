@@ -116,9 +116,6 @@ const TestimonialsSection = () => {
               Get your personalized feed recommendation and see the difference for yourself.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <button className="bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-elegant hover:scale-105 transition-all duration-300 px-8 py-3 rounded-lg font-semibold">
-                Get Your Quote
-              </button>
               <button className="border border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 px-8 py-3 rounded-lg font-semibold">
                 Contact Us
               </button>

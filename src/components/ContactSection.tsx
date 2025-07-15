@@ -38,7 +38,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Phone</h4>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                    <p className="text-muted-foreground">+91 9148493835</p>
                   </div>
                 </CardContent>
               </Card>
@@ -50,7 +50,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Email</h4>
-                    <p className="text-muted-foreground">info@chickenfeedpro.com</p>
+                    <p className="text-muted-foreground">kodofeeds@gmail.com</p>
                   </div>
                 </CardContent>
               </Card>
@@ -62,7 +62,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Address</h4>
-                    <p className="text-muted-foreground">123 Farm Road<br />Agriculture Valley, AV 12345</p>
+                    <p className="text-muted-foreground">Dairy premises, UAS Dharwad, Karnataka, India</p>
                   </div>
                 </CardContent>
               </Card>
@@ -92,7 +92,7 @@ const ContactSection = () => {
               </h4>
               <p className="text-muted-foreground text-sm">
                 For urgent feeding issues or emergencies, call our 24/7 hotline: 
-                <span className="font-semibold text-accent ml-1">+1 (555) 911-FEED</span>
+                <span className="font-semibold text-accent ml-1">+91 9148493835</span>
               </p>
             </div>
           </div>

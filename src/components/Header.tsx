@@ -24,10 +24,8 @@ const Header = () => {
             to="/" 
             className="flex items-center space-x-2 text-xl font-bold text-primary hover:text-primary-glow transition-colors duration-300"
           >
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">CF</span>
-            </div>
-            <span>ChickenFeed Pro</span>
+            <img src="/logo.png" alt="Kodo Feeds Logo" className="w-20 h-20 rounded-lg object-contain" />
+            <span>Kodo Feeds</span>
           </Link>
 
           {/* Desktop Navigation */}

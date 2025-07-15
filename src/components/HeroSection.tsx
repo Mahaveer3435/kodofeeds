@@ -9,7 +9,7 @@ const HeroSection = () => {
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
+        style={{ backgroundImage: `url('/heroback.png')` }}
       >
         <div className="absolute inset-0 bg-primary/70"></div>
       </div>
@@ -40,7 +40,7 @@ const HeroSection = () => {
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-3xl mx-auto leading-relaxed">
             Boost egg production and chicken health with our scientifically formulated feed. 
-            Trusted by farmers worldwide for over 25 years.
+            Trusted by farmers for over 4+ years.
           </p>
 
           {/* CTA Buttons */}
@@ -61,7 +61,7 @@ const HeroSection = () => {
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-8 border-t border-primary-foreground/20">
             <div className="text-center animate-fade-in">
-              <div className="text-3xl md:text-4xl font-bold text-primary-foreground mb-2">25+</div>
+              <div className="text-3xl md:text-4xl font-bold text-primary-foreground mb-2">4+</div>
               <div className="text-primary-foreground/80 text-sm">Years Experience</div>
             </div>
             <div className="text-center animate-fade-in" style={{ animationDelay: '0.1s' }}>

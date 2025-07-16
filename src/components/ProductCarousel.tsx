@@ -54,12 +54,7 @@ const ProductCarousel = () => {
   };
 
   const getVisibleProducts = () => {
-    const visibleProducts = [];
-    for (let i = 0; i < 4; i++) {
-      const index = (currentIndex + i) % products.length;
-      visibleProducts.push(products[index]);
-    }
-    return visibleProducts;
+    return [products[currentIndex]];
   };
 
   return (
@@ -93,10 +88,10 @@ const ProductCarousel = () => {
           </Button>
 
           {/* Products Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-12">
+          <div className="flex justify-center px-12">
             {getVisibleProducts().map((product, index) => (
-              <Card key={`${product.id}-${currentIndex}-${index}`} className="group hover:shadow-elegant transition-all duration-300 animate-fade-in">
-                <CardContent className="p-6">
+              <Card key={`${product.id}-${currentIndex}-${index}`} className="group hover:shadow-elegant transition-all duration-300 animate-fade-in w-full max-w-md">
+                <CardContent className="p-6 flex flex-col h-full">
                   <div className="aspect-square bg-primary/5 rounded-lg mb-4 overflow-hidden">
                     <img 
                       src={product.image} 
@@ -105,33 +100,37 @@ const ProductCarousel = () => {
                     />
                   </div>
                   
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-semibold text-lg text-foreground">{product.name}</h3>
-                      <div className="flex items-center gap-1">
-                        <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                        <span className="text-sm text-muted-foreground">{product.rating}</span>
+                  <div className="flex-1 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-semibold text-lg text-foreground">{product.name}</h3>
+                        <div className="flex items-center gap-1">
+                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                          <span className="text-sm text-muted-foreground">{product.rating}</span>
+                        </div>
+                      </div>
+                      
+                      <p className="text-muted-foreground text-sm">{product.description}</p>
+                      
+                      <div className="flex flex-wrap gap-1">
+                        {product.features.map((feature, featureIndex) => (
+                          <span 
+                            key={featureIndex}
+                            className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
+                          >
+                            {feature}
+                          </span>
+                        ))}
                       </div>
                     </div>
                     
-                    <p className="text-muted-foreground text-sm">{product.description}</p>
-                    
-                    <div className="flex flex-wrap gap-1">
-                      {product.features.map((feature, featureIndex) => (
-                        <span 
-                          key={featureIndex}
-                          className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    <div className="flex items-center justify-between pt-2">
-                      <span className="text-2xl font-bold text-primary">{product.price}</span>
-                      <Button size="sm" className="bg-primary hover:bg-primary/90">
-                        View Details
-                      </Button>
+                    <div className="mt-6 pt-4 border-t border-border">
+                      <div className="flex items-center justify-between">
+                        <span className="text-2xl font-bold text-primary">{product.price}</span>
+                        <Button size="sm" className="bg-primary hover:bg-primary/90">
+                          View Details
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </CardContent>

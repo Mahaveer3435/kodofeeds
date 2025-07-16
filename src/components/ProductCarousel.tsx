@@ -67,98 +67,106 @@ const ProductCarousel = () => {
   };
 
   return (
-    <section className="py-12 bg-secondary/30">
-      <div className="container mx-auto px-4 max-w-2xl">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold mb-3 text-primary">Our Premium Products</h2>
-          <p className="text-base text-muted-foreground">
-            Discover our range of scientifically formulated feeds designed for optimal nutrition and growth
+    <section className="py-8 bg-secondary/30">
+      <div className="container mx-auto px-4 max-w-lg">
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold mb-2 text-primary">Our Premium Products</h2>
+          <p className="text-sm text-muted-foreground">
+            Scientifically formulated feeds for optimal nutrition
           </p>
         </div>
 
-        <div className="relative">
+        <div className="relative overflow-hidden">
           {/* Navigation Buttons */}
           <Button
             variant="outline"
-            size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground"
+            size="sm"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground h-8 w-8"
             onClick={prevSlide}
           >
-            <ArrowLeft className="h-4 w-4" />
+            <ArrowLeft className="h-3 w-3" />
           </Button>
           
           <Button
             variant="outline"
-            size="icon"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground"
+            size="sm"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground h-8 w-8"
             onClick={nextSlide}
           >
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-3 w-3" />
           </Button>
 
-          {/* Products Grid */}
-          <div className="flex justify-center px-8">
-            {getVisibleProducts().map((product, index) => (
-              <Card key={`${product.id}-${currentIndex}-${index}`} className="group hover:shadow-elegant transition-all duration-300 animate-fade-in w-full max-w-sm">
-                <CardContent className="p-4 flex flex-col h-full">
-                  <div className="aspect-square bg-primary/5 rounded-lg mb-4 overflow-hidden">
-                    <img 
-                      src={product.image} 
-                      alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-                  
-                  <div className="flex-1 flex flex-col justify-between">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between">
-                        <h3 className="font-semibold text-lg text-foreground">{product.name}</h3>
-                        <div className="flex items-center gap-1">
-                          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          <span className="text-sm text-muted-foreground">{product.rating}</span>
+          {/* Products Slider */}
+          <div className="relative h-80">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${currentIndex * 100}%)`,
+                width: `${products.length * 100}%`
+              }}
+            >
+              {products.map((product, index) => (
+                <div key={product.id} className="w-full px-6 flex justify-center" style={{ width: `${100 / products.length}%` }}>
+                  <Card className="group hover:shadow-elegant transition-all duration-300 w-full max-w-xs">
+                    <CardContent className="p-3">
+                      <div className="aspect-[4/3] bg-primary/5 rounded-lg mb-3 overflow-hidden">
+                        <img 
+                          src={product.image} 
+                          alt={product.name}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      
+                      <div className="space-y-2">
+                        <div className="flex items-center justify-between">
+                          <h3 className="font-semibold text-base text-foreground truncate">{product.name}</h3>
+                          <div className="flex items-center gap-1">
+                            <Star className="h-3 w-3 fill-yellow-400 text-yellow-400" />
+                            <span className="text-xs text-muted-foreground">{product.rating}</span>
+                          </div>
+                        </div>
+                        
+                        <p className="text-muted-foreground text-xs leading-relaxed">{product.description}</p>
+                        
+                        <div className="flex flex-wrap gap-1">
+                          {product.features.slice(0, 2).map((feature, featureIndex) => (
+                            <span 
+                              key={featureIndex}
+                              className="px-1.5 py-0.5 bg-primary/10 text-primary text-xs rounded-full"
+                            >
+                              {feature}
+                            </span>
+                          ))}
+                        </div>
+                        
+                        <div className="pt-2 border-t border-border">
+                          <div className="flex items-center justify-between">
+                            <span className="text-lg font-bold text-primary">{product.price}</span>
+                            <Button size="sm" className="bg-primary hover:bg-primary/90 text-xs h-7 px-2">
+                              View
+                            </Button>
+                          </div>
                         </div>
                       </div>
-                      
-                      <p className="text-muted-foreground text-sm">{product.description}</p>
-                      
-                      <div className="flex flex-wrap gap-1">
-                        {product.features.map((feature, featureIndex) => (
-                          <span 
-                            key={featureIndex}
-                            className="px-2 py-1 bg-primary/10 text-primary text-xs rounded-full"
-                          >
-                            {feature}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className="mt-6 pt-4 border-t border-border">
-                      <div className="flex items-center justify-between">
-                        <span className="text-2xl font-bold text-primary">{product.price}</span>
-                        <Button size="sm" className="bg-primary hover:bg-primary/90">
-                          View Details
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
           </div>
+        </div>
 
-          {/* Dots Indicator */}
-          <div className="flex justify-center mt-8 gap-2">
-            {products.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 rounded-full transition-colors ${
-                  index === currentIndex ? 'bg-primary' : 'bg-primary/30'
-                }`}
-                onClick={() => setCurrentIndex(index)}
-              />
-            ))}
-          </div>
+        {/* Dots Indicator */}
+        <div className="flex justify-center mt-4 gap-2">
+          {products.map((_, index) => (
+            <button
+              key={index}
+              className={`w-2 h-2 rounded-full transition-colors ${
+                index === currentIndex ? 'bg-primary' : 'bg-primary/30'
+              }`}
+              onClick={() => setCurrentIndex(index)}
+            />
+          ))}
         </div>
       </div>
     </section>

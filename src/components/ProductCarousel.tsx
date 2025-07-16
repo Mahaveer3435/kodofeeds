@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const products = [
   {
@@ -45,6 +45,15 @@ const products = [
 const ProductCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Auto-advance carousel every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
   };
@@ -58,11 +67,11 @@ const ProductCarousel = () => {
   };
 
   return (
-    <section className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4 text-primary">Our Premium Products</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+    <section className="py-12 bg-secondary/30">
+      <div className="container mx-auto px-4 max-w-2xl">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold mb-3 text-primary">Our Premium Products</h2>
+          <p className="text-base text-muted-foreground">
             Discover our range of scientifically formulated feeds designed for optimal nutrition and growth
           </p>
         </div>
@@ -88,10 +97,10 @@ const ProductCarousel = () => {
           </Button>
 
           {/* Products Grid */}
-          <div className="flex justify-center px-12">
+          <div className="flex justify-center px-8">
             {getVisibleProducts().map((product, index) => (
-              <Card key={`${product.id}-${currentIndex}-${index}`} className="group hover:shadow-elegant transition-all duration-300 animate-fade-in w-full max-w-md">
-                <CardContent className="p-6 flex flex-col h-full">
+              <Card key={`${product.id}-${currentIndex}-${index}`} className="group hover:shadow-elegant transition-all duration-300 animate-fade-in w-full max-w-sm">
+                <CardContent className="p-4 flex flex-col h-full">
                   <div className="aspect-square bg-primary/5 rounded-lg mb-4 overflow-hidden">
                     <img 
                       src={product.image} 

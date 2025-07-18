@@ -85,9 +85,9 @@ const ProductCarousel = () => {
           </Button>
 
           {/* Products Slider */}
-          <div className="relative h-64">
+          <div className="relative h-72">
             <div 
-              className="flex transition-transform duration-700 ease-in-out"
+              className="flex transition-transform duration-1000 ease-in-out"
               style={{
                 transform: `translateX(-${currentIndex * 100}%)`,
                 width: `${products.length * 100}%`
@@ -99,16 +99,16 @@ const ProductCarousel = () => {
                   className="flex-shrink-0 w-full px-2 flex justify-center" 
                   style={{ width: `${100 / products.length}%` }}
                 >
-                  <Card className={`group hover:shadow-elegant transition-all duration-700 w-full max-w-xs ${
+                  <Card className={`group hover:shadow-elegant transition-all duration-1000 w-full max-w-xs ${
                     index === currentIndex ? 'scale-100 opacity-100' : 'scale-95 opacity-70'
                   }`}>
                     <CardContent className="p-3">
-                      <div className="space-y-2">
-                        <div className="w-full h-24 bg-muted rounded-lg overflow-hidden">
+                      <div className="space-y-3">
+                        <div className="w-full h-32 bg-muted rounded-lg overflow-hidden">
                           <img 
                             src={product.image} 
                             alt={product.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                           />
                         </div>
                         <h3 className="font-semibold text-sm text-foreground text-center">{product.name}</h3>

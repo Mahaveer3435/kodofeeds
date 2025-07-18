@@ -7,22 +7,26 @@ const products = [
   {
     id: 1,
     name: "Starter Feed Pro",
-    price: "₹2,850"
+    price: "₹2,850",
+    image: "/src/assets/chicken-feed-product.jpg"
   },
   {
     id: 2,
     name: "Layer Feed Premium", 
-    price: "₹3,200"
+    price: "₹3,200",
+    image: "/src/assets/chicken-feed-product.jpg"
   },
   {
     id: 3,
     name: "Broiler Feed Max",
-    price: "₹2,950"
+    price: "₹2,950",
+    image: "/src/assets/chicken-feed-product.jpg"
   },
   {
     id: 4,
     name: "Organic Blend",
-    price: "₹3,800"
+    price: "₹3,800",
+    image: "/src/assets/chicken-feed-product.jpg"
   }
 ];
 
@@ -81,23 +85,35 @@ const ProductCarousel = () => {
           </Button>
 
           {/* Products Slider */}
-          <div className="relative h-48">
+          <div className="relative h-64">
             <div 
-              className="flex transition-transform duration-500 ease-in-out"
+              className="flex transition-transform duration-700 ease-in-out"
               style={{
                 transform: `translateX(-${currentIndex * 100}%)`,
                 width: `${products.length * 100}%`
               }}
             >
-              {products.map((product) => (
-                <div key={product.id} className="flex-shrink-0 w-full px-3 flex justify-center" style={{ width: `${100 / products.length}%` }}>
-                  <Card className="group hover:shadow-elegant transition-all duration-300 w-full max-w-xs">
-                    <CardContent className="p-4">
-                      <div className="space-y-3">
+              {products.map((product, index) => (
+                <div 
+                  key={product.id} 
+                  className="flex-shrink-0 w-full px-2 flex justify-center" 
+                  style={{ width: `${100 / products.length}%` }}
+                >
+                  <Card className={`group hover:shadow-elegant transition-all duration-700 w-full max-w-xs ${
+                    index === currentIndex ? 'scale-100 opacity-100' : 'scale-95 opacity-70'
+                  }`}>
+                    <CardContent className="p-3">
+                      <div className="space-y-2">
+                        <div className="w-full h-24 bg-muted rounded-lg overflow-hidden">
+                          <img 
+                            src={product.image} 
+                            alt={product.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
                         <h3 className="font-semibold text-sm text-foreground text-center">{product.name}</h3>
-                        
                         <div className="flex items-center justify-center">
-                          <span className="text-2xl font-bold text-primary">{product.price}</span>
+                          <span className="text-lg font-bold text-primary">{product.price}</span>
                         </div>
                       </div>
                     </CardContent>

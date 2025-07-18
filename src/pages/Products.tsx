@@ -6,6 +6,10 @@ import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Leaf, Shield, Zap, Award } from "lucide-react";
 import productImage from "@/assets/chicken-feed-product.jpg";
 
+const getProductId = (name: string) => {
+  return name.toLowerCase().replace(/\s+/g, '-');
+};
+
 const Products = () => {
   const products = [
     {
@@ -214,8 +218,12 @@ const Products = () => {
                     >
                       Add to Cart
                     </Button>
-                    <Button variant="outline" className="flex-1">
-                      Learn More
+                    <Button 
+                      variant="outline" 
+                      className="flex-1"
+                      onClick={() => window.location.href = `#/products/${getProductId(product.name)}`}
+                    >
+                      View Details
                     </Button>
                   </div>
                 </CardContent>

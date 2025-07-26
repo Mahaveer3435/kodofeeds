@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -66,11 +67,13 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
-				'gradient-hero': 'var(--gradient-hero)'
+				'gradient-hero': 'var(--gradient-hero)',
+				'gradient-card': 'var(--gradient-card)'
 			},
 			boxShadow: {
 				'elegant': 'var(--shadow-elegant)',
-				'glow': 'var(--shadow-glow)'
+				'glow': 'var(--shadow-glow)',
+				'card': 'var(--shadow-card)'
 			},
 			transitionTimingFunction: {
 				'smooth': 'var(--transition-smooth)'
@@ -79,6 +82,16 @@ export default {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			fontFamily: {
+				sans: ['Inter', 'system-ui', 'sans-serif'],
+			},
+			fontSize: {
+				'xs': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],
+				'sm': ['0.875rem', { lineHeight: '1.25rem', letterSpacing: '0.01em' }],
+				'base': ['1rem', { lineHeight: '1.5rem', letterSpacing: '0' }],
+				'lg': ['1.125rem', { lineHeight: '1.75rem', letterSpacing: '-0.01em' }],
+				'xl': ['1.25rem', { lineHeight: '1.75rem', letterSpacing: '-0.02em' }],
 			},
 			keyframes: {
 				'accordion-down': {
@@ -134,6 +147,10 @@ export default {
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' }
+				},
+				'shimmer': {
+					'0%': { backgroundPosition: '-200% 0' },
+					'100%': { backgroundPosition: '200% 0' }
 				}
 			},
 			animation: {
@@ -143,7 +160,8 @@ export default {
 				'fade-in-up': 'fade-in-up 0.6s ease-out',
 				'scale-in': 'scale-in 0.3s ease-out',
 				'slide-in-right': 'slide-in-right 0.3s ease-out',
-				'float': 'float 3s ease-in-out infinite'
+				'float': 'float 3s ease-in-out infinite',
+				'shimmer': 'shimmer 2s linear infinite'
 			}
 		}
 	},

@@ -67,97 +67,111 @@ const ProductCarousel = () => {
   };
 
   return (
-    <section className="py-8 bg-gray-50">
+    <section className="py-16 bg-gradient-to-br from-secondary/30 to-muted/50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-6">
-          <h2 className="text-2xl font-bold mb-2 text-gray-900">Our Premium Products</h2>
-          <p className="text-gray-600">
-            Scientifically formulated feeds for optimal chicken health
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-foreground">
+            Our <span className="text-gradient">Premium Products</span>
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Scientifically formulated feeds for optimal chicken health and performance
           </p>
         </div>
 
-        <div className="relative w-full max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
-          {/* Auto-play toggle button */}
-          <button
-            onClick={toggleAutoPlay}
-            className="absolute top-4 right-4 z-20 w-10 h-10 bg-white/90 hover:bg-gray-100 rounded-full shadow-md flex items-center justify-center transition-all duration-300 border border-gray-200"
-          >
-            {isAutoPlaying ? (
-              <Pause className="w-4 h-4 text-gray-700" />
-            ) : (
-              <Play className="w-4 h-4 text-gray-700" />
-            )}
-          </button>
-
-          {/* Main carousel container */}
-          <div className="relative h-96 overflow-hidden">
-            {/* Products slider */}
-            <div 
-              className="flex transition-transform duration-500 ease-in-out h-full"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        <div className="relative w-full max-w-lg mx-auto">
+          {/* Professional glass-effect container */}
+          <div className="glass-effect rounded-2xl overflow-hidden shadow-elegant">
+            {/* Auto-play toggle button */}
+            <button
+              onClick={toggleAutoPlay}
+              className="absolute top-6 right-6 z-20 w-12 h-12 glass-effect hover:bg-background/90 rounded-full shadow-card flex items-center justify-center transition-all duration-300 border border-border/50"
             >
-              {products.map((product) => (
-                <div key={product.id} className="min-w-full flex items-center justify-center p-6">
-                  <Card className="w-full max-w-xs bg-white shadow-md border border-gray-200 rounded-lg overflow-hidden">
-                    <CardContent className="p-0">
-                      <div className="w-full h-48 bg-gray-100">
-                        <img 
-                          src={product.image} 
-                          alt={product.name}
-                          className="w-full h-full object-cover"
-                          onError={(e) => {
-                            const target = e.target as HTMLImageElement;
-                            target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect width='200' height='200' fill='%23f3f4f6'/%3E%3Ctext x='100' y='100' font-family='Arial' font-size='16' fill='%236b7280' text-anchor='middle' dy='.3em'%3EChicken Feed%3C/text%3E%3C/svg%3E";
-                          }}
-                        />
-                      </div>
-                      <div className="p-4 text-center">
-                        <h3 className="font-semibold text-lg text-gray-900 mb-2">
-                          {product.name}
-                        </h3>
-                        <div className="text-xl font-bold text-gray-900">
-                          {product.price}
+              {isAutoPlaying ? (
+                <Pause className="w-5 h-5 text-foreground" />
+              ) : (
+                <Play className="w-5 h-5 text-foreground" />
+              )}
+            </button>
+
+            {/* Main carousel container */}
+            <div className="relative h-[480px] overflow-hidden">
+              {/* Products slider */}
+              <div 
+                className="flex transition-all duration-1000 ease-in-out h-full"
+                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+              >
+                {products.map((product, index) => (
+                  <div key={product.id} className="min-w-full flex items-center justify-center p-8">
+                    <Card className={`w-full max-w-sm card-professional transition-all duration-500 hover:shadow-glow hover:scale-[1.02] ${
+                      index === currentIndex ? 'animate-scale-in' : ''
+                    }`}>
+                      <CardContent className="p-0">
+                        <div className="w-full h-56 bg-gradient-to-br from-muted/30 to-muted/60 relative overflow-hidden">
+                          <img 
+                            src={product.image} 
+                            alt={product.name}
+                            className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
+                            onError={(e) => {
+                              const target = e.target as HTMLImageElement;
+                              target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23f8fafc'/%3E%3Ctext x='150' y='100' font-family='Inter, sans-serif' font-size='18' fill='%2364748b' text-anchor='middle' dy='.3em'%3EPremium Feed%3C/text%3E%3C/svg%3E";
+                            }}
+                          />
+                          {/* Professional overlay gradient */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
                         </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </div>
+                        
+                        <div className="p-6 text-center bg-gradient-card">
+                          <h3 className="font-semibold text-xl text-foreground mb-3 tracking-tight">
+                            {product.name}
+                          </h3>
+                          <div className="text-2xl font-bold text-gradient mb-4">
+                            {product.price}
+                          </div>
+                          <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-4" />
+                          <p className="text-sm text-muted-foreground">
+                            Premium quality feed for optimal nutrition
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Professional navigation buttons */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={prevSlide}
+              className="absolute left-6 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 glass-effect hover:bg-background/90 rounded-full shadow-card flex items-center justify-center transition-all duration-300 border border-border/50 p-0"
+            >
+              <ChevronLeft className="w-6 h-6 text-foreground" />
+            </Button>
+
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={nextSlide}
+              className="absolute right-6 top-1/2 transform -translate-y-1/2 z-20 w-12 h-12 glass-effect hover:bg-background/90 rounded-full shadow-card flex items-center justify-center transition-all duration-300 border border-border/50 p-0"
+            >
+              <ChevronRight className="w-6 h-6 text-foreground" />
+            </Button>
+
+            {/* Professional indicators */}
+            <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20 glass-effect rounded-full px-4 py-3">
+              {products.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`transition-all duration-300 ${
+                    index === currentIndex 
+                      ? 'w-8 h-2 bg-gradient-primary rounded-full shadow-glow' 
+                      : 'w-2 h-2 bg-muted-foreground/50 hover:bg-muted-foreground rounded-full'
+                  }`}
+                />
               ))}
             </div>
-          </div>
-
-          {/* Navigation buttons */}
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={prevSlide}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 bg-white/90 hover:bg-gray-100 rounded-full shadow-md flex items-center justify-center transition-all duration-300 border border-gray-200 p-0"
-          >
-            <ChevronLeft className="w-5 h-5 text-gray-700" />
-          </Button>
-
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={nextSlide}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-20 w-10 h-10 bg-white/90 hover:bg-gray-100 rounded-full shadow-md flex items-center justify-center transition-all duration-300 border border-gray-200 p-0"
-          >
-            <ChevronRight className="w-5 h-5 text-gray-700" />
-          </Button>
-
-          {/* Indicators */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-20">
-            {products.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'w-8 h-2 bg-gray-900 rounded-full' 
-                    : 'w-2 h-2 bg-gray-400 hover:bg-gray-600 rounded-full'
-                }`}
-              />
-            ))}
           </div>
         </div>
       </div>

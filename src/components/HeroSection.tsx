@@ -18,7 +18,7 @@ const HeroSection = () => {
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="max-w-5xl mx-auto animate-fade-in-up">
           {/* Professional Rating Badge */}
-          <div className="inline-flex items-center space-x-2 glass-effect rounded-full px-8 py-4 mb-8 shadow-elegant">
+          <div className="inline-flex items-center space-x-2 glass-effect rounded-full px-8 py-4 mb-12 shadow-elegant">
             <div className="flex items-center space-x-1">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
@@ -61,7 +61,7 @@ const HeroSection = () => {
           </div>
 
           {/* Professional Stats with Enhanced Design */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-primary-foreground/20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 pb-16 border-t border-primary-foreground/20">
             {[
               { number: "4+", label: "Years Experience", delay: "0s" },
               { number: "10K+", label: "Happy Farmers", delay: "0.1s" },

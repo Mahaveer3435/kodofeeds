@@ -137,7 +137,7 @@ All colors MUST be HSL.
 
 @layer components {
   .glass-effect {
-    @apply bg-background/80 backdrop-blur-lg border border-border/50;
+    @apply bg-background/40 backdrop-blur-lg border border-border/30;
   }
 
   .card-professional {
